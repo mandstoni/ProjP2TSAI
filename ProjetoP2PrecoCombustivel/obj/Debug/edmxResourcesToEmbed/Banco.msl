@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_valor_combustivelModelStoreContainer" CdmEntityContainer="db_valor_combustivelEntities">
+    <EntitySetMapping Name="TB_ESTADO">
+      <EntityTypeMapping TypeName="db_valor_combustivelModel.TB_ESTADO">
+        <MappingFragment StoreEntitySet="TB_ESTADO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="nomeEstado" ColumnName="nomeEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ESTADO_COMBUSTIVEL">
+      <EntityTypeMapping TypeName="db_valor_combustivelModel.TB_ESTADO_COMBUSTIVEL">
+        <MappingFragment StoreEntitySet="TB_ESTADO_COMBUSTIVEL">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="valorEtanol" ColumnName="valorEtanol" />
+          <ScalarProperty Name="valorGasolina" ColumnName="valorGasolina" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_MELHOR_COMBUSTIVEL_VALOR">
+      <EntityTypeMapping TypeName="db_valor_combustivelModel.TB_MELHOR_COMBUSTIVEL_VALOR">
+        <MappingFragment StoreEntitySet="TB_MELHOR_COMBUSTIVEL_VALOR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="tipoCombustivel" ColumnName="tipoCombustivel" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

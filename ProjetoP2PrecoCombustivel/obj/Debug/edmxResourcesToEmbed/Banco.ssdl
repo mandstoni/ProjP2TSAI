@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_valor_combustivelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TB_ESTADO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomeEstado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TB_ESTADO_COMBUSTIVEL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="valorEtanol" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="valorGasolina" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="id_estado" Type="int" />
+  </EntityType>
+  <EntityType Name="TB_MELHOR_COMBUSTIVEL_VALOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoCombustivel" Type="varchar" MaxLength="50" />
+    <Property Name="id_estado" Type="int" />
+  </EntityType>
+  <Association Name="FK__TB_ESTADO__id_es__29572725">
+    <End Role="TB_ESTADO" Type="Self.TB_ESTADO" Multiplicity="0..1" />
+    <End Role="TB_ESTADO_COMBUSTIVEL" Type="Self.TB_ESTADO_COMBUSTIVEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_ESTADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TB_ESTADO_COMBUSTIVEL">
+        <PropertyRef Name="id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TB_MELHOR__id_es__2F10007B">
+    <End Role="TB_ESTADO" Type="Self.TB_ESTADO" Multiplicity="0..1" />
+    <End Role="TB_MELHOR_COMBUSTIVEL_VALOR" Type="Self.TB_MELHOR_COMBUSTIVEL_VALOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_ESTADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TB_MELHOR_COMBUSTIVEL_VALOR">
+        <PropertyRef Name="id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_valor_combustivelModelStoreContainer">
+    <EntitySet Name="TB_ESTADO" EntityType="Self.TB_ESTADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_ESTADO_COMBUSTIVEL" EntityType="Self.TB_ESTADO_COMBUSTIVEL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_MELHOR_COMBUSTIVEL_VALOR" EntityType="Self.TB_MELHOR_COMBUSTIVEL_VALOR" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TB_ESTADO__id_es__29572725" Association="Self.FK__TB_ESTADO__id_es__29572725">
+      <End Role="TB_ESTADO" EntitySet="TB_ESTADO" />
+      <End Role="TB_ESTADO_COMBUSTIVEL" EntitySet="TB_ESTADO_COMBUSTIVEL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TB_MELHOR__id_es__2F10007B" Association="Self.FK__TB_MELHOR__id_es__2F10007B">
+      <End Role="TB_ESTADO" EntitySet="TB_ESTADO" />
+      <End Role="TB_MELHOR_COMBUSTIVEL_VALOR" EntitySet="TB_MELHOR_COMBUSTIVEL_VALOR" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
